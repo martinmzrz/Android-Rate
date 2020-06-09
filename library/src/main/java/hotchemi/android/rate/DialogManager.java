@@ -1,11 +1,12 @@
 package hotchemi.android.rate;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import static hotchemi.android.rate.IntentHelper.createIntentForAmazonAppstore;
 import static hotchemi.android.rate.IntentHelper.createIntentForGooglePlay;
@@ -19,7 +20,7 @@ final class DialogManager {
     }
 
     static Dialog create(final Context context, final DialogOptions options) {
-        AlertDialog.Builder builder = getDialogBuilder(context);
+        MaterialAlertDialogBuilder builder = getDialogBuilder(context);
         builder.setMessage(options.getMessageText(context));
 
         if (options.shouldShowTitle()) builder.setTitle(options.getTitleText(context));
